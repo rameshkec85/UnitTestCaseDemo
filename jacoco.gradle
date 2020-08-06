@@ -1,0 +1,56 @@
+apply plugin: 'jacoco'
+//ext.jacocoVersion = '0.8.3'
+//
+//jacoco {
+//    toolVersion = "$jacocoVersion"
+//    reportsDir = file("$buildDir/jacocoReport")
+//}
+
+project.afterEvaluate {
+
+    android.applicationVariants.all { variant ->
+        def variantName = variant.name
+        def testTaskName = "test${variantName.capitalize()}UnitTest"
+        def androidTestCoverageTaskName = "create${variantName.capitalize()}CoverageReport"
+
+        tasks.create(name: "${testTaskName}Coverage", type: JacocoReport, dependsOn: ["$testTaskName", "$androidTestCoverageTaskName"]) {
+            group = "Reporting"
+            description = "Generate Jacoco coverage reports for the ${variantName.capitalize()} build."
+
+            reports {
+                xml.enabled = false
+                html.enabled = true
+//                html.destination "$buildDir/jacocoReport"
+            }
+
+            def excludes = ['**/R*.class',
+                            '**/*$InjectAdapter.class',
+                            '**/*$ModuleAdapter.class',
+                            '**/*$ViewInjector*.class',
+                            '**/*Activity*.class',
+                      '**/BuildConfig.*',
+                      '**/Manifest*.*',
+                      '**/*Test*.*',
+                      'android/**/*.*',
+                      '**/models/*',
+            ]
+
+            def debugTree = fileTree(dir: "$project.buildDir/intermediates/javac/debug", excludes: excludes)
+//            def debugTree = fileTree(dir: "$project.buildDir/tmp/kotlin-classes/debug", excludes: excludes)
+
+            def mainSrc = "$project.projectDir/src/main/java"
+
+//            sourceDirectories = files([mainSrc])
+//            classDirectories = files([debugTree])
+//            executionData = fileTree(dir: project.buildDir, includes: [
+//                    "jacoco/${testTaskName}.exec", "outputs/code_coverage/${variantName}AndroidTest/connected/**/*.ec"
+//            ])
+
+            sourceDirectories.from([mainSrc])
+            classDirectories.from([debugTree])
+            executionData.from(fileTree(dir: project.buildDir, includes: [
+                    "jacoco/${testTaskName}.exec", "outputs/code_coverage/${variantName}AndroidTest/connected/**/*.ec"
+            ]))
+        }
+    }
+}

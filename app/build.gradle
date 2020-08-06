@@ -1,6 +1,11 @@
 apply plugin: 'com.android.application'
 apply plugin: 'jacoco'
+apply from: '../jacoco.gradle'
 
+//jacoco {
+//    toolVersion = "0.8.5"
+//    reportsDir = file("$buildDir/customJacocoReportDir")
+//}
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -16,6 +21,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -32,7 +40,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
 
 
-    
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -41,27 +49,29 @@ dependencies {
 
 }
 
-task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
-    reports {
-        xml.enabled = true
-        html.enabled = true
-    }
 
-    def fileFilter = ['**/R.class',
-                      '**/R$*.class',
-                      '**/BuildConfig.*',
-                      '**/Manifest*.*',
-                      '**/*Test*.*',
-                      'android/**/*.*',
-                      '**/data/models/*']
-    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
-    def mainSrc = "${project.projectDir}/src/main/java"
-
-    sourceDirectories.from([mainSrc])
-    classDirectories.from([debugTree])
-    executionData.from( fileTree(dir: "$buildDir", includes: [
-            "jacoco/testDebugUnitTest.exec",
-            "outputs/code-coverage/connected/*coverage.ec"
-    ]))
-
-}
+//task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
+//    reports {
+//        xml.enabled = false
+//        html.enabled = true
+//        html.destination file("${buildDir}/jacocoHtml")
+//
+//    }
+//
+//    def fileFilter = ['**/R.class',
+//                      '**/R$*.class',
+//                      '**/BuildConfig.*',
+//                      '**/Manifest*.*',
+//                      '**/*Test*.*',
+//                      'android/**/*.*',
+//                      '**/data/models/*']
+//    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
+//    def mainSrc = "${project.projectDir}/src/main/java"
+//
+//    sourceDirectories.from([mainSrc])
+//    classDirectories.from([debugTree])
+//    executionData.from( fileTree(dir: "$buildDir", includes: [
+//            "jacoco/testDebugUnitTest.exec",
+//            "outputs/code-coverage/connected/*coverage.ec"
+//    ]))
+//}

@@ -1,5 +1,7 @@
 package com.andhradroid.unittestcasedemo.mvp;
 
+import com.andhradroid.unittestcasedemo.mvp.models.LoginResponse;
+
 public class RetrofitLoginPresenter implements LoginInteractor {
     RetrofitApi mRetrofitApi;
 

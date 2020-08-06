@@ -1,6 +1,6 @@
 package com.andhradroid.unittestcasedemo;
 
-import com.andhradroid.unittestcasedemo.mvp.LoginResponse;
+import com.andhradroid.unittestcasedemo.mvp.models.LoginResponse;
 
 public interface LoginView {
 

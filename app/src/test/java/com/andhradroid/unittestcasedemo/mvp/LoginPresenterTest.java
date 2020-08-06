@@ -2,10 +2,10 @@ package com.andhradroid.unittestcasedemo.mvp;
 
 import com.andhradroid.unittestcasedemo.LoginView;
 import com.andhradroid.unittestcasedemo.R;
+import com.andhradroid.unittestcasedemo.mvp.models.LoginResponse;
 import com.google.gson.Gson;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

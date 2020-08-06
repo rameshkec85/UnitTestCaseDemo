@@ -3,6 +3,7 @@ package com.andhradroid.unittestcasedemo.mvp;
 
 import com.andhradroid.unittestcasedemo.LoginView;
 import com.andhradroid.unittestcasedemo.R;
+import com.andhradroid.unittestcasedemo.mvp.models.LoginResponse;
 
 public class LoginPresenter {
 
