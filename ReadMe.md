@@ -11,5 +11,5 @@ UnitTestCaseDemo>app>reporting>testDebugUnitTestCoverage
 
 ![Gradle Task](gradle_task_report.png)
 
-![Code Coverage Report](gradle_task_report.png)
+![Code Coverage Report](code_coverage_report.png)
 
