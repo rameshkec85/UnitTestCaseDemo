@@ -49,7 +49,7 @@ build/
 local.properties
 proguard-project.txt
 !Tryme*.zip
-gradle.properties
+#gradle.properties
 
 # IDE files #
 ###############
