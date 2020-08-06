@@ -1,4 +1,7 @@
 
+![Java CI with Gradle](https://github.com/rameshkec85/UnitTestCaseDemo/workflows/Java%20CI%20with%20Gradle/badge.svg)
+
+
 Command:
 
 `./gradlew build testDebugUnitTestCoverage`
