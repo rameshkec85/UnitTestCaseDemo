@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">UnitTestCaseDemo</string>
+    <string name="validation_message">Validation Error</string>
+</resources>
