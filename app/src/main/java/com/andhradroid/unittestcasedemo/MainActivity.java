@@ -4,6 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.andhradroid.unittestcasedemo.mvp.LoginPresenter;
+import com.andhradroid.unittestcasedemo.mvp.LoginResponse;
+import com.andhradroid.unittestcasedemo.mvp.RetrofitApi;
+import com.andhradroid.unittestcasedemo.mvp.RetrofitLoginPresenter;
+import com.andhradroid.unittestcasedemo.mvp.TextUtils;
+
 public class MainActivity extends AppCompatActivity implements LoginView {
 
     @Override
@@ -16,8 +22,6 @@ public class MainActivity extends AppCompatActivity implements LoginView {
                 new TextUtils());
         //
         loginPresenter.doLogin("admin", "admin");
-        //
-        loginPresenter.doLogin("sss", "admin");
 
     }
 

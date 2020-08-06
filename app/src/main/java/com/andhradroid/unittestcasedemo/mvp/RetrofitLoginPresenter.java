@@ -1,4 +1,4 @@
-package com.andhradroid.unittestcasedemo;
+package com.andhradroid.unittestcasedemo.mvp;
 
 public class RetrofitLoginPresenter implements LoginInteractor {
     RetrofitApi mRetrofitApi;
@@ -8,7 +8,7 @@ public class RetrofitLoginPresenter implements LoginInteractor {
     }
 
     @Override
-    public void doLogin(String username, String password, Callback<LoginResponse> callback) {
+    public void doLogin(String username, String password, ResponseCallback<LoginResponse> responseCallback) {
 //        mRetrofitApi.service.doLogin()...
     }
 }

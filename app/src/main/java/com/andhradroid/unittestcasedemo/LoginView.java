@@ -1,5 +1,7 @@
 package com.andhradroid.unittestcasedemo;
 
+import com.andhradroid.unittestcasedemo.mvp.LoginResponse;
+
 public interface LoginView {
 
     void showProgress();

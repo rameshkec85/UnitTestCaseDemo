@@ -1,5 +1,8 @@
-package com.andhradroid.unittestcasedemo;
+package com.andhradroid.unittestcasedemo.mvp;
 
+
+import com.andhradroid.unittestcasedemo.LoginView;
+import com.andhradroid.unittestcasedemo.R;
 
 public class LoginPresenter {
 
@@ -21,11 +24,11 @@ public class LoginPresenter {
             loginView.onError(loginView.getStringResId(R.string.validation_message));
         } else {
             loginView.showProgress();
-            loginInteractor.doLogin(username, password, callback);
+            loginInteractor.doLogin(username, password, responseCallback);
         }
     }
 
-    final Callback<LoginResponse> callback = new Callback<LoginResponse>() {
+    final ResponseCallback<LoginResponse> responseCallback = new ResponseCallback<LoginResponse>() {
         @Override
         public void onSuccess(LoginResponse response) {
             loginView.hideProgress();

@@ -1,4 +1,4 @@
-package com.andhradroid.unittestcasedemo;
+package com.andhradroid.unittestcasedemo.mvp;
 
 public class LoginResponse {
 
