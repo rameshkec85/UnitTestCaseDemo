@@ -1,14 +1,11 @@
 package com.andhradroid.unittestcasedemo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.andhradroid.unittestcasedemo.mvp.LoginPresenter;
 import com.andhradroid.unittestcasedemo.mvp.models.LoginResponse;
-import com.andhradroid.unittestcasedemo.mvp.RetrofitApi;
-import com.andhradroid.unittestcasedemo.mvp.RetrofitLoginPresenter;
-import com.andhradroid.unittestcasedemo.mvp.TextUtils;
 
 public class MainActivity extends AppCompatActivity implements LoginView {
 
@@ -17,9 +14,8 @@ public class MainActivity extends AppCompatActivity implements LoginView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //
-        LoginPresenter loginPresenter = new LoginPresenter(this,
-                new RetrofitLoginPresenter(new RetrofitApi()),
-                new TextUtils());
+        LoginPresenter loginPresenter = LoginFactory.get()
+                .newLoginPresenter(this);
         //
         loginPresenter.doLogin("admin", "admin");
 

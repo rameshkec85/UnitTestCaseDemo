@@ -28,11 +28,11 @@ project.afterEvaluate {
                             '**/*$ModuleAdapter.class',
                             '**/*$ViewInjector*.class',
                             '**/*Activity*.class',
-                      '**/BuildConfig.*',
-                      '**/Manifest*.*',
-                      '**/*Test*.*',
-                      'android/**/*.*',
-                      '**/models/*',
+                            '**/BuildConfig.*',
+                            '**/Manifest*.*',
+                            '**/*Test*.*',
+                            'android/**/*.*',
+                            '**/models/*',
             ]
 
             def debugTree = fileTree(dir: "$project.buildDir/intermediates/javac/debug", excludes: excludes)
